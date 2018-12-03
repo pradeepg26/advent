@@ -1,6 +1,8 @@
 package util
 
 import (
+	"bufio"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -36,4 +38,17 @@ func Sum(data []int64) int64 {
 		sum += i
 	}
 	return sum
+}
+
+func LoadInputAsLines() []string {
+	file, e := os.Open("input.txt")
+	DieOnErr(e)
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	res := make([]string, 0)
+	for scanner.Scan() {
+		res = append(res, scanner.Text())
+	}
+	DieOnErr(scanner.Err())
+	return res
 }

@@ -9,16 +9,7 @@ import (
 )
 
 func LoadInput() []string {
-	file, e := os.Open("input.txt")
-	util.DieOnErr(e)
-	defer file.Close()
-	scanner := bufio.NewScanner(file)
-	res := make([]string, 0)
-	for scanner.Scan() {
-		res = append(res, scanner.Text())
-	}
-	util.DieOnErr(scanner.Err())
-	return res
+	return util.LoadInputAsLines()
 }
 
 // Process the string and return two booleans as ints
