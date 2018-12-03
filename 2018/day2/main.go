@@ -81,7 +81,7 @@ func FindCorrectIds(data []string) (string, string) {
 }
 
 func CommonLetters(left, right string) string {
-	result := make([]rune, len(left)-1)
+	result := make([]rune, 0, len(left)-1)
 	lhs := []rune(left)
 	rhs := []rune(right)
 	for i, ch := range lhs {
