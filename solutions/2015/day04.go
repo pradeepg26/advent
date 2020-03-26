@@ -1,4 +1,4 @@
-package main
+package solutions
 
 import (
 	"crypto/md5"
@@ -22,7 +22,7 @@ func Mine(key string, numLeading int) int {
 	panic("must find num")
 }
 
-func main() {
+func main1504() {
 	fmt.Println(Mine("abcdef", 5))
 	fmt.Println(Mine("pqrstuv", 5))
 	fmt.Println(Mine("bgvyzdsv", 5))

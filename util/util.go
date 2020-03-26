@@ -13,6 +13,16 @@ func DieOnErr(err error) {
 	}
 }
 
+func OpenOrDie(filename string) *os.File {
+	f, err := os.Open(filename)
+	DieOnErr(err)
+	return f
+}
+
+func CloseOrDie(file *os.File) {
+	DieOnErr(file.Close())
+}
+
 func ParseInt(s string) int {
 	i, e := strconv.ParseInt(s, 10, 32)
 	DieOnErr(e)
@@ -41,9 +51,8 @@ func Sum(data []int64) int64 {
 }
 
 func LoadInputAsLines() []string {
-	file, e := os.Open("input.txt")
-	DieOnErr(e)
-	defer file.Close()
+	file := OpenOrDie("input.txt")
+	defer CloseOrDie(file)
 	scanner := bufio.NewScanner(file)
 	res := make([]string, 0)
 	for scanner.Scan() {

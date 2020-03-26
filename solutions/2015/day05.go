@@ -1,4 +1,4 @@
-package main
+package solutions
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/pradeepg26/advent/util"
 )
 
-func LoadInput() []string {
+func loadInput1505() []string {
 	return util.LoadInputAsLines()
 }
 
@@ -44,12 +44,12 @@ func CountNiceStrings(data []string) int {
 	return count
 }
 
-func main() {
+func main1505() {
 	fmt.Println(NiceString("ugknbfddgicrmopn"))
 	fmt.Println(NiceString("aaa"))
 	fmt.Println(NiceString("jchzalrnumimnmhp"))
 	fmt.Println(NiceString("haegwjzuvuyypxyu"))
 	fmt.Println(NiceString("dvszwmarrgswjxmb"))
-	data := LoadInput()
+	data := loadInput1505()
 	fmt.Println(CountNiceStrings(data))
 }

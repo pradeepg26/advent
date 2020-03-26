@@ -1,4 +1,4 @@
-package main
+package solutions
 
 import (
 	"bufio"
@@ -41,7 +41,7 @@ func min(a, b int) int {
 	return b
 }
 
-func LoadInput() []Dim {
+func LoadInputDay02() []Dim {
 	file, e := os.Open("input.txt")
 	util.DieOnErr(e)
 	defer file.Close()
@@ -72,8 +72,8 @@ func MinRibbonNeeded(data []Dim) int {
 	return total
 }
 
-func main() {
-	data := LoadInput()
+func main1502() {
+	data := LoadInputDay02()
 	fmt.Println(MinAreaNeeded(data))
 	fmt.Println(MinRibbonNeeded(data))
 }

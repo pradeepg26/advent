@@ -1,4 +1,4 @@
-package main
+package solutions
 
 import (
 	"fmt"
@@ -7,13 +7,13 @@ import (
 	"github.com/pradeepg26/advent/util"
 )
 
-type Claim struct {
+type claim struct {
 	id         string
 	x, y, w, h int
 }
 
-func LoadInput() []Claim {
-	result := make([]Claim, 0)
+func LoadInput1803() []claim {
+	result := make([]claim, 0)
 	for _, str := range util.LoadInputAsLines() {
 		re := regexp.MustCompile(`(?P<id>#\d+) @ (?P<x>\d+),(?P<y>\d+): (?P<w>\d+)x(?P<h>\d+)`)
 		extr := re.FindStringSubmatch(str)
@@ -22,15 +22,15 @@ func LoadInput() []Claim {
 		y := util.ParseInt(extr[3])
 		w := util.ParseInt(extr[4])
 		h := util.ParseInt(extr[5])
-		result = append(result, Claim{id, x, y, w, h})
+		result = append(result, claim{id, x, y, w, h})
 	}
 	return result
 }
 
-func Process(data []Claim) int {
+func process(data []claim) int {
 	counts := make(map[string]int)
 	for _, c := range data {
-		// iterate each square and mark it
+		// Iterate each square and mark it
 		for i := c.x; i < c.x+c.w; i++ {
 			for j := c.y; j < c.y+c.h; j++ {
 				coord := str(i, j)
@@ -47,10 +47,10 @@ func Process(data []Claim) int {
 	return total
 }
 
-func FindNonOverlappingClaim(data []Claim) string {
+func FindNonOverlappingClaim(data []claim) string {
 	claims := make(map[string][]string)
 	for _, c := range data {
-		// iterate each square and mark it
+		// Iterate each square and mark it
 		for i := c.x; i < c.x+c.w; i++ {
 			for j := c.y; j < c.y+c.h; j++ {
 				coord := str(i, j)
@@ -88,8 +88,8 @@ func str(x, y int) string {
 	return fmt.Sprintf("(%d, %d)", x, y)
 }
 
-func main() {
-	data := LoadInput()
-	fmt.Println(Process(data))
+func main1803() {
+	data := LoadInput1803()
+	fmt.Println(process(data))
 	fmt.Println(FindNonOverlappingClaim(data))
 }

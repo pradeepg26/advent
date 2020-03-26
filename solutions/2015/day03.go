@@ -1,4 +1,4 @@
-package main
+package solutions
 
 import (
 	"fmt"
@@ -30,7 +30,7 @@ func (p Pos) Move(r rune) Pos {
 	}
 }
 
-func LoadInput() []rune {
+func loadInput() []rune {
 	bytes, err := ioutil.ReadFile("input.txt")
 	util.DieOnErr(err)
 	return []rune(string(bytes))
@@ -61,8 +61,8 @@ func HousesVisitedTwoAtATime(data []rune) int {
 	return len(set)
 }
 
-func main() {
-	data := LoadInput()
+func main1503() {
+	data := loadInput()
 	fmt.Println(HousesVisited(data))
 	fmt.Println(HousesVisitedTwoAtATime(data))
 }

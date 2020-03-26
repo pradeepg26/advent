@@ -1,4 +1,4 @@
-package main
+package solutions
 
 import (
 	"bufio"
@@ -9,7 +9,7 @@ import (
 	"github.com/pradeepg26/advent/util"
 )
 
-func LoadInput() []int64 {
+func LoadInput1801() []int64 {
 	file, e := os.Open("input.txt")
 	util.DieOnErr(e)
 	defer file.Close()
@@ -38,8 +38,8 @@ func FindFirstRepeatedFrequency(data []int64) int64 {
 	}
 }
 
-func main() {
-	data := LoadInput()
+func main1801() {
+	data := LoadInput1801()
 	fmt.Println("final freq =", util.Sum(data))
 	fmt.Println("first repeated freq =", FindFirstRepeatedFrequency(data))
 }

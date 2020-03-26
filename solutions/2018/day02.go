@@ -1,14 +1,11 @@
-package main
+package solutions
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-
 	"github.com/pradeepg26/advent/util"
 )
 
-func LoadInput() []string {
+func LoadInput1802() []string {
 	return util.LoadInputAsLines()
 }
 
@@ -83,8 +80,8 @@ func CommonLetters(left, right string) string {
 	return string(result)
 }
 
-func main() {
-	data := LoadInput()
+func main1802() {
+	data := LoadInput1802()
 	fmt.Println("checksum =", Checksum(data))
 	fmt.Println(CommonLetters(FindCorrectIds(data)))
 }
